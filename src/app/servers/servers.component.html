@@ -1,0 +1,15 @@
+<label>Ime servera</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)"> 
+
+<label>Ime servera</label>
+<input type="text" class="form-control" [(ngModel)]="imeServera">
+
+<button [disabled]="!dodajServer" class="btn btn-danger" (click)="onCreateServer()">Dodaj server</button>
+<!-- <p>{{ imeServera }}</p> -->
+<!-- <p [innerText]="dodajServer"></p> -->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf ="serverKreiran">Ime servera: {{ imeServera }}</p>
+
+<app-server *ngFor="let serverLista of serveri; let i = index"
+[ngStyle]="{'font-style': i > 3 ? 'italic' : 'normal'}"
+></app-server> 
